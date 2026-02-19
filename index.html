@@ -3,54 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venture Architect | Master Titan Edition</title>
+    <title>Venture Architect | Business Infrastructure Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700;800&family=Outfit:wght@900&display=swap');
-        
-        :root { --indigo: #6366f1; --bg: #020617; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: #f1f5f9; scroll-behavior: smooth; }
-        
-        .font-heading { font-family: 'Outfit', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap');
+        :root { --accent: #6366f1; --dark: #020617; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark); color: white; }
         .stripe-gradient { background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%); }
-        .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border-radius: 32px; }
-        
-        .ticker { white-space: nowrap; animation: ticker-scroll 40s linear infinite; display: inline-block; }
-        @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        
-        .blueprint-card { background: white; color: #0f172a; border-radius: 32px; padding: 2.5rem; }
+        .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 32px; }
         .spinner { border: 3px solid rgba(99, 102, 241, 0.1); border-top: 3px solid #6366f1; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="min-h-screen pb-20 overflow-x-hidden">
+<body class="min-h-screen pb-20">
 
-    <!-- Mission Ticker -->
-    <div class="w-full bg-indigo-600/10 border-b border-indigo-500/20 py-2 overflow-hidden sticky top-0 z-50 backdrop-blur-md">
-        <div class="ticker text-[9px] font-extrabold uppercase tracking-[0.3em] text-indigo-400">
-            • STRIPE INFRASTRUCTURE VERIFIED • FUNDING SOVEREIGN MOTORSPORTS • $10,000 GOOGLE AD GRANT ACTIVE • MASTER TITAN v8.0 •
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header class="max-w-xl mx-auto px-6 pt-16 text-center space-y-4">
-        <h1 class="text-6xl md:text-7xl font-heading font-black tracking-tighter leading-none italic uppercase">
-            Titan <span class="text-indigo-500">Architect</span>
+    <header class="max-w-xl mx-auto px-6 pt-20 text-center space-y-4">
+        <h1 class="text-6xl font-800 tracking-tighter uppercase italic leading-none">
+            Venture <span class="text-indigo-500">Architect</span>
         </h1>
-        <p class="text-slate-500 text-lg font-light italic">World-Class Venture Engineering. 100% of proceeds fund the Motorsports Youth Sponsorship Program.</p>
+        <p class="text-slate-500 text-lg font-light italic">We build high-performance business infrastructure for founders.</p>
     </header>
 
     <main class="max-w-xl mx-auto px-6 mt-12 space-y-10">
         
-        <!-- Asset Audit -->
+        <!-- Client Input Section -->
         <div class="glass p-10 space-y-6 shadow-2xl">
             <div class="space-y-2 text-center">
-                <label class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">Asset & Capacity Audit</label>
-                <textarea id="skills" class="w-full bg-black/40 border border-slate-800 rounded-2xl p-6 text-white focus:border-indigo-500 transition-all h-36 outline-none text-lg" placeholder="Detail your skills, capital, and vision..."></textarea>
+                <label class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">Client Asset Audit</label>
+                <textarea id="visionInput" class="w-full bg-black/40 border border-slate-800 rounded-2xl p-6 text-white focus:border-indigo-500 transition-all h-36 outline-none text-lg" placeholder="Describe the business you want us to architect..."></textarea>
             </div>
             
             <button onclick="architectVenture()" id="mainBtn" class="w-full stripe-gradient py-5 rounded-2xl font-800 text-white uppercase tracking-widest shadow-2xl hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3 text-lg">
-                <span id="btnText">Architect My Venture</span>
+                <span id="btnText">Architect My Business</span>
                 <div id="loader" class="hidden spinner border-t-white"></div>
             </button>
         </div>
@@ -58,51 +42,51 @@
         <!-- Output Container -->
         <div id="output" class="space-y-4"></div>
 
-        <!-- Tiered Pricing -->
+        <!-- Pricing Tiers -->
         <div id="pricing" class="hidden space-y-8 animate-in fade-in duration-700">
-            <h2 class="text-4xl font-heading font-black italic uppercase text-center">Select Strategic Depth</h2>
+            <h2 class="text-3xl font-800 uppercase italic text-center">Select Strategic Depth</h2>
 
             <div class="grid grid-cols-1 gap-6">
-                <!-- Tier 1: $2,500 Roadmap -->
-                <div class="glass p-8 border-white/10 space-y-6 flex flex-col justify-between">
-                    <div>
-                        <div class="text-indigo-400 text-[10px] font-bold uppercase tracking-widest">Level 01: Strategic</div>
-                        <h4 class="text-3xl font-800 italic uppercase">Strategic Roadmap</h4>
-                        <p class="text-slate-400 text-sm mt-4 italic">Instant 50-page infrastructure blueprint, P&L, and Marketing Funnels. Automated delivery.</p>
+                <!-- $2,500 Roadmap -->
+                <div class="glass p-8 border-white/10 space-y-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-indigo-400 text-[10px] font-bold uppercase tracking-widest">Level 01</div>
+                            <h4 class="text-3xl font-800 italic uppercase">Strategic Roadmap</h4>
+                        </div>
+                        <div class="text-3xl font-800">$2,500</div>
                     </div>
-                    <div class="space-y-4 pt-4">
-                        <div class="text-4xl font-800">$2,500</div>
-                        <button onclick="payStripe('roadmap')" class="w-full stripe-gradient py-5 rounded-2xl font-800 text-white uppercase tracking-widest shadow-lg">Purchase Roadmap</button>
-                    </div>
+                    <p class="text-slate-400 text-sm italic leading-relaxed">A full 50-page technical blueprint, marketing funnel, and 12-month financial model. Delivered instantly via AI synchronization.</p>
+                    <button onclick="buyNow()" class="w-full stripe-gradient py-5 rounded-2xl font-800 text-white uppercase tracking-widest shadow-lg">Purchase Roadmap</button>
                 </div>
 
-                <!-- Tier 2: $5,000 Ultimate Titan -->
-                <div class="glass p-8 border-indigo-500/50 bg-indigo-500/5 space-y-6 flex flex-col justify-between">
-                    <div>
-                        <div class="text-indigo-400 text-[10px] font-bold uppercase tracking-widest">Level 02: The Ultimate</div>
-                        <h4 class="text-3xl font-800 italic uppercase">Titan Build-Out</h4>
-                        <p class="text-slate-400 text-sm mt-4 italic">Full-scale manual implementation. We build your tech stack, legal filing, and initial marketing loops.</p>
+                <!-- $5,000 Ultimate Build -->
+                <div class="glass p-8 border-indigo-500/50 bg-indigo-500/5 space-y-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-indigo-400 text-[10px] font-bold uppercase tracking-widest">Level 02</div>
+                            <h4 class="text-3xl font-800 italic uppercase">Titan Build-Out</h4>
+                        </div>
+                        <div class="text-3xl font-800">$5,000</div>
                     </div>
-                    <div class="space-y-4 pt-4">
-                        <div class="text-4xl font-800">$5,000+</div>
-                        <button onclick="applyTitan()" class="w-full bg-white text-black py-5 rounded-2xl font-800 uppercase tracking-widest shadow-lg">Inquire for Implementation</button>
-                    </div>
+                    <p class="text-slate-400 text-sm italic leading-relaxed">Complete done-for-you service. We form your legal entity, set up your tech stack, and manage your first 30 days.</p>
+                    <button onclick="applyNow()" class="w-full bg-white text-black py-5 rounded-2xl font-800 uppercase tracking-widest shadow-lg">Apply for Onboarding</button>
                 </div>
             </div>
         </div>
 
-        <!-- Blueprint Content Area -->
-        <div id="blueprintDisplay" class="hidden glass p-10 bg-white text-slate-900 rounded-[32px] shadow-2xl"></div>
+        <!-- Hidden Blueprint Unlocked Area -->
+        <div id="blueprint" class="hidden glass p-10 bg-white text-slate-900 rounded-[32px] shadow-2xl"></div>
 
     </main>
 
     <script type="module">
         const apiKey = ""; 
         const apiURL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
-        let selectedName = "";
+        let selectedVenture = "";
 
         window.architectVenture = async () => {
-            const input = document.getElementById('skills').value;
+            const input = document.getElementById('visionInput').value;
             const btnText = document.getElementById('btnText');
             const loader = document.getElementById('loader');
             const output = document.getElementById('output');
@@ -115,7 +99,7 @@
             output.innerHTML = '';
             pricing.classList.add('hidden');
 
-            const prompt = `Skills: ${input}. Suggest 3 high-margin scalable business ideas. JSON: [{name, brief}].`;
+            const prompt = `Client wants a business based on: ${input}. Suggest 3 high-profit business models they could sell. JSON: [{name, brief}].`;
 
             try {
                 const res = await fetch(`${apiURL}?key=${apiKey}`, {
@@ -131,24 +115,24 @@
                     card.className = "glass p-6 border-l-4 border-indigo-500 cursor-pointer hover:bg-white/5 transition-all";
                     card.innerHTML = `
                         <h3 class="text-2xl font-800 italic uppercase leading-none">${idea.name}</h3>
-                        <p class="text-slate-400 text-sm mt-2">${idea.brief}</p>
-                        <button onclick="selectVenture('${idea.name}')" class="mt-4 text-[10px] font-bold text-indigo-400 uppercase tracking-widest border border-indigo-500/20 px-3 py-1 rounded">Architect This Model</button>
+                        <p class="text-slate-400 text-sm mt-2 font-medium">${idea.brief}</p>
+                        <button onclick="selectVenture('${idea.name}')" class="mt-4 text-[10px] font-bold text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded uppercase tracking-widest">Select Infrastructure</button>
                     `;
                     output.appendChild(card);
                 });
             } finally {
-                btnText.textContent = "Architect My Venture";
+                btnText.textContent = "Architect My Business";
                 loader.classList.add('hidden');
             }
         };
 
         window.selectVenture = (name) => {
-            selectedName = name;
+            selectedVenture = name;
             document.getElementById('pricing').classList.remove('hidden');
             document.getElementById('pricing').scrollIntoView({behavior: 'smooth'});
         };
 
-        window.payStripe = () => {
+        window.buyNow = () => {
             if(confirm("Simulating Stripe Payment Verification ($2,500)...")) {
                 deliverBlueprint();
             }
@@ -157,18 +141,18 @@
         async function deliverBlueprint() {
             document.getElementById('pricing').classList.add('hidden');
             document.getElementById('output').classList.add('hidden');
-            const final = document.getElementById('blueprintDisplay');
+            const final = document.getElementById('blueprint');
             final.classList.remove('hidden');
-            final.innerHTML = '<div class="text-center py-20"><div class="spinner mx-auto mb-4"></div><p class="font-bold uppercase tracking-widest italic text-indigo-600">Architecting Strategic Roadmap...</p></div>';
+            final.innerHTML = '<div class="text-center py-20"><div class="spinner mx-auto mb-4"></div><p class="font-bold uppercase tracking-widest italic text-indigo-600">Generating 50-Page Roadmap...</p></div>';
 
-            const prompt = `CLIENT PAID $2500. CREATE A 50-PAGE STRATEGIC BLUEPRINT FOR: ${selectedName}. INCLUDE REVENUE MODELS, MARKETING, AND SCALE PLAN. MARKDOWN.`;
+            const prompt = `CREATE A 50-PAGE STRATEGIC BUSINESS BLUEPRINT FOR: ${selectedVenture}. INCLUDE REVENUE MODELS, MARKETING, AND SCALE PLAN. MARKDOWN.`;
             const res = await fetch(`${apiURL}?key=${apiKey}`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ contents: [{parts: [{text: prompt}]}] }) });
             const data = await res.json();
             final.innerHTML = `<div class="prose prose-slate max-w-none text-sm">${data.candidates[0].content.parts[0].text.replace(/\n/g, '<br>')}</div><button onclick="window.print()" class="mt-8 w-full bg-black text-white py-5 font-800 rounded-2xl uppercase tracking-widest italic">Save Your Roadmap</button>`;
         }
 
-        window.applyTitan = () => {
-            window.location.href = `mailto:your@email.com?subject=Titan Implementation Request: ${selectedName}`;
+        window.applyNow = () => {
+            window.location.href = `mailto:your@email.com?subject=Titan Build Request: ${selectedVenture}`;
         };
     </script>
 </body>
